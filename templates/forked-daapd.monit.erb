@@ -1,0 +1,3 @@
+check process forked-daapd with pidfile <%= scope['::fdaapd::params::pidfile'] %>
+   start program = "<%= scope['::fdaapd::params::service_start'] %>"
+   stop  program = "<%= scope['::fdaapd::params::service_stop'] %>"

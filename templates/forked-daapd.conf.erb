@@ -21,7 +21,7 @@ library {
 	# TCP port to listen on. Default port is 3689 (daap)
 	port = <%= port %>
 	# Password for the library. Optional.
-	password = "<%= password %>"
+	<%= password_line %>
 
 	# Directories to index
 	directories = { "<%= music_dirs %>" }

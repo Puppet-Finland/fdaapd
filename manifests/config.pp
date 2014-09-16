@@ -13,6 +13,12 @@ class fdaapd::config
     include os::params
     include fdaapd::params
 
+    if $password == '' {
+        $password_line = "#password = \"undefined\""
+    } else {
+        $password_line = "password = \"$password\""
+    }
+
     file { 'fdaapd-forked-daapd.conf':
         name => "${::fdaapd::params::config_name}",
         content => template('fdaapd/forked-daapd.conf.erb'),

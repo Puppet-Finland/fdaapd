@@ -20,10 +20,10 @@
 #
 # == Examples
 #
-# class { 'fdaapd':
-#  music_dirs => '/data/music',
-#  daap_allow_ipv4_address => '192.168.50.0/24',
-# }
+#   class { 'fdaapd':
+#       music_dirs => '/data/music',
+#       daap_allow_ipv4_address => '192.168.50.0/24',
+#   }
 #
 # == Authors
 #
@@ -31,8 +31,7 @@
 #
 # == License
 #
-# BSD-lisence
-# See file LICENSE for details
+# BSD-license. See file LICENSE for details.
 #
 class fdaapd
 (

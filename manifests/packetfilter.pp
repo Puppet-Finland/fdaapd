@@ -3,10 +3,12 @@
 #
 # Limits access to forked-daapd daap share based on IP-address/range
 #
-class fdaapd::packetfilter(
+class fdaapd::packetfilter
+(
     $daap_allow_ipv4_address,
     $daap_allow_ipv6_address
-)
+
+) inherits fdaapd::params
 {
 
     # IPv4 rules
@@ -15,7 +17,7 @@ class fdaapd::packetfilter(
         chain => 'INPUT',
         proto => 'udp',
         port => 3689,
-        source => "$daap_allow_ipv4_address",
+        source => $daap_allow_ipv4_address,
         action => 'accept',
     }
 
@@ -25,7 +27,7 @@ class fdaapd::packetfilter(
         chain => 'INPUT',
         proto => 'udp',
         port => 3689,
-        source => "$daap_allow_ipv6_address",
+        source => $daap_allow_ipv6_address,
         action => 'accept',
     }
 }

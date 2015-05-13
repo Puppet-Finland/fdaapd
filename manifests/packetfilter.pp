@@ -11,23 +11,22 @@ class fdaapd::packetfilter
 ) inherits fdaapd::params
 {
 
+    Firewall {
+        chain    => 'INPUT',
+        proto    => 'udp',
+        port     => 3689,
+        action   => 'accept',
+    }
+
     # IPv4 rules
     firewall { '013 ipv4 accept daap port':
         provider => 'iptables',
-        chain => 'INPUT',
-        proto => 'udp',
-        port => 3689,
-        source => $daap_allow_ipv4_address,
-        action => 'accept',
+        source   => $daap_allow_ipv4_address,
     }
 
     # IPv6 rules
     firewall { '013 ipv6 accept daap port':
         provider => 'ip6tables',
-        chain => 'INPUT',
-        proto => 'udp',
-        port => 3689,
-        source => $daap_allow_ipv6_address,
-        action => 'accept',
+        source   => $daap_allow_ipv6_address,
     }
 }

@@ -6,7 +6,7 @@
 class fdaapd::install inherits fdaapd::params {
 
     package { 'fdaapd':
-        name => $::fdaapd::params::package_name,
         ensure => installed,
+        name   => $::fdaapd::params::package_name,
     }
 }

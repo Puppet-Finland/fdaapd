@@ -6,7 +6,7 @@
 class fdaapd::monit inherits fdaapd::params {
 
     monit::fragment { 'fdaapd-forked-daapd.monit':
-        basename => 'forked-daapd',
+        basename   => 'forked-daapd',
         modulename => 'fdaapd',
     }
 }

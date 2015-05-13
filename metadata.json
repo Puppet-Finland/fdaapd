@@ -1,6 +1,6 @@
 {
   "name": "puppetfinland-fdaapd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Puppet-Finland team",
   "license": "BSD license",
   "summary": "Setup fdaapd",
@@ -9,7 +9,7 @@
   "dependencies": [
     { "name": "puppetfinland/monit", "version_requirement": ">= 0.5.0" },
     { "name": "puppetfinland/packetfilter", "version_requirement": ">= 0.5.0" },
-    { "name": "puppetfinland/os", "version_requirement": ">= 0.5.5" },
+    { "name": "puppetfinland/os", "version_requirement": ">= 0.5.7" },
     { "name": "puppetfinland/systemd", "version_requirement": ">= 0.1.0" }
   ]
 }

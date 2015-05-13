@@ -5,6 +5,9 @@
 #
 # == Parameters
 #
+# [*manage*]
+#   Manage forked-daap with Puppet. Valid values are 'present' (default) and 
+#   'absent'.
 # [*music_dirs*]
 #   A list of directories with the music files to share 
 # [*port*]
@@ -35,33 +38,33 @@
 #
 class fdaapd
 (
+    $manage = 'yes',
     $music_dirs,
     $port=3689,
-    $password='',
+    $password=undef,
     $daap_allow_ipv4_address='127.0.0.1',
     $daap_allow_ipv6_address='::1'
 )
 {
 
-# Rationale for this is explained in init.pp of the sshd module
-if hiera('manage_fdaapd', 'true') != 'false' {
+if $manage == 'yes' {
 
-    include fdaapd::install
+    include ::fdaapd::install
 
-    class { 'fdaapd::config':
+    class { '::fdaapd::config':
         music_dirs => $music_dirs,
-        port => $port,
-        password => $password,
+        port       => $port,
+        password   => $password,
     }
 
-    include fdaapd::service
+    include ::fdaapd::service
 
     if tagged('monit') {
-        include fdaapd::monit
+        include ::fdaapd::monit
     }
 
     if tagged('packetfilter') {
-        class { 'fdaapd::packetfilter':
+        class { '::fdaapd::packetfilter':
             daap_allow_ipv4_address => $daap_allow_ipv4_address,
             daap_allow_ipv6_address => $daap_allow_ipv6_address,
         }

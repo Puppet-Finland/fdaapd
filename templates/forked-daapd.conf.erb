@@ -19,12 +19,12 @@ library {
 	# %h: hostname, %v: version
 	name = "DAAP share on %h"
 	# TCP port to listen on. Default port is 3689 (daap)
-	port = <%= port %>
+	port = <%= @port %>
 	# Password for the library. Optional.
-	<%= password_line %>
+	<%= @password_line %>
 
 	# Directories to index
-	directories = { "<%= music_dirs %>" }
+	directories = { "<%= @music_dirs %>" }
 	# Directories containing compilations
 	# Matches anywhere in the path (not a regexp, though)
 #	compilations = { "/compilations/" }
